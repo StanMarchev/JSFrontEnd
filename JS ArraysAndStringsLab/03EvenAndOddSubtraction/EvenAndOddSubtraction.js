@@ -1,16 +1,16 @@
-function evenOddSubtraction(arr) {
-    let evenSum = 0;
-    let oddSum = 0;
-
+function sumDifference(arr) {
+    let sumEven = 0;
+    let sumOdd = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] % 2 === 0) {
-            evenSum += arr[i];
+            sumEven += arr[i];
         } else {
-            oddSum += arr[i];
-        }
+            sumOdd += arr[i];
+        }  
     }
 
-    return evenSum - oddSum;
-}
+    
+    console.log(sumEven - sumOdd)
+} 
 
-evenOddSubtraction([1,2,3,4,5,6])
+sumDifference([3,5,7,9]);
