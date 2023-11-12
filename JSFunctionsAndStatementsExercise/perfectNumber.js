@@ -1,10 +1,10 @@
 function perfectNum(number) {
-    
+
     let sum = 0;
 
-    for (let current = 1; current < number; current++){
+    for (let current = 1; current < number; current++) {
 
-        if(number % current === 0){
+        if (number % current === 0) {
             sum += current;
         }
     }
@@ -12,9 +12,9 @@ function perfectNum(number) {
 
     if (sum === number) {
         console.log('We have a perfect number!');
-    }else {
+    } else {
         console.log("It's not so perfect.");
     }
 
 }
-    perfectNum(123);
+perfectNum(123);
