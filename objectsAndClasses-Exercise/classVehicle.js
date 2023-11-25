@@ -3,7 +3,7 @@ class Vehicle {
       this.type = type;
       this.model = model;
       this.parts = {
-        //   ...parts, или engine и power по отделно
+       
         engine: parts.engine,
         power: parts.power,
         quality: parts.engine * parts.power,
@@ -16,7 +16,7 @@ class Vehicle {
     }
   }
   
-  // test input1
+ 
   let parts = { engine: 6, power: 100 };
   let vehicle = new Vehicle("a", "b", parts, 200);
   vehicle.drive(100);
