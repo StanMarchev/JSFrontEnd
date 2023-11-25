@@ -25,9 +25,9 @@ meetings(['Monday Peter',
 'Monday Tim',
 'Friday Tim']
 )
-meetings(['Friday Bob',
-'Saturday Ted',
-'Monday Bill',
-'Monday John',
-'Wednesday George']
-)
+// meetings(['Friday Bob',
+// 'Saturday Ted',
+// 'Monday Bill',
+// 'Monday John',
+// 'Wednesday George']
+// )
