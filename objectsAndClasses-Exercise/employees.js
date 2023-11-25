@@ -1,6 +1,5 @@
 function solve(namesArr) {
   
-
   let employees = {};
   for (const name of namesArr) {
     employees[name] = name.length;
