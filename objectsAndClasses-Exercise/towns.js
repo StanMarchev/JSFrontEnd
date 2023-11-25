@@ -3,7 +3,7 @@ function solve(inputArr) {
         let [town, latitude, longitude] = city.split(" | ");
         return { town, latitude, longitude };
     }).forEach((city) => {
-        // console.log(JSON.stringify(city));
+        
         let latitude = Number(city.latitude).toFixed(2);
         let longitude = Number(city.longitude).toFixed(2);
         console.log(`{ town: '${city.town}', latitude: '${latitude}', longitude: '${longitude}' }`);
