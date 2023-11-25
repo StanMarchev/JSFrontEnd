@@ -1,23 +1,19 @@
 function solve(input) {
     const dictionary = input
-      // ['', '', '' ,'']
+   
       .reduce((acc, curr) => {
         const term = JSON.parse(curr);
-        // map -> [{}, {}, {}, {}
+      
         acc = { ...acc, ...term };
-        // acc се натрупва(добавяме всички property които идват от следващия елемент) -
-        //- при всеки loop и така при извикването съдържа всички предишни елементи
       return acc;
     }, {});
-    // reduce -> {coffee: '...'}
 
     const sortedTerms = Object.keys(dictionary).sort()
   
   sortedTerms.forEach(term => {
     console.log(`Term: ${term} => Definition: ${dictionary[term]}`)
   })
-  
-  // console.log(JSON.stringify(dictionary, null, 2));
+
 }
 
 solve([
