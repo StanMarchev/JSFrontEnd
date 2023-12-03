@@ -17,6 +17,6 @@ function deleteByEmail() {
     if (isRemoved){
         resultElement.textContent = 'Deleted';
     } else {
-        resultElement.textContent = 'Not found';
+        resultElement.textContent = 'Not found.';
     }
 }
