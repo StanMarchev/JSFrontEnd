@@ -6,7 +6,7 @@ function addItem() {
 
     const deleteLink = document.createElement('a');
     deleteLink.href ='#';
-    deleteLink.textContent = '[DELETE]'
+    deleteLink.textContent = '[Delete]'
 
     deleteLink.addEventListener('click', deleteItem);
 
