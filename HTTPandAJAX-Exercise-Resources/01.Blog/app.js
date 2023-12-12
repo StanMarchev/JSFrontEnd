@@ -27,7 +27,17 @@ function attachEvents() {
         }
         
 
-    }) 
+    });
+
+    viewButton.addEventListener('click', async ()=> {
+
+        const postId = postsSelect.value;
+
+        postBody.textContent = allPosts[postId].body;
+        postTitle.textContent = allPosts[postId].title;
+    })
+
+    
 
 
 
