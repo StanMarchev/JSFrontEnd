@@ -6,7 +6,7 @@ function attachEvents() {
     const postsSelect = document.getElementById('posts');
     const postTitle = document.getElementById('post-title');
     const postBody = document.getElementById('post-body');
-    const postComments = document.getElementById('post-coments');
+    const postComments = document.getElementById('post-comments');
 
     let allPosts = {};
 
@@ -29,18 +29,29 @@ function attachEvents() {
 
     });
 
-    viewButton.addEventListener('click', async ()=> {
+    viewButton.addEventListener('click', async () => {
+
+        postBody.innerHTML = '';
+        postComments.innerHTML = '';
 
         const postId = postsSelect.value;
 
         postBody.textContent = allPosts[postId].body;
         postTitle.textContent = allPosts[postId].title;
-    })
 
-    
+        const response = await fetch(baseURL + 'comments');
+        const commentsInfo = await response.json();
+        
+        const filteredComments = Object.values(commentsInfo).filter(e => e.postId === postId);
+        filteredComments.forEach(comment => {
 
+            const li = document.createElement('li');
+            li.id = comment.id;
+            li.textContent = comment.text;
+            postComments.appendChild(li);
+        });
 
-
+    });
 
 }
 
