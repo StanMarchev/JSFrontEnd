@@ -73,8 +73,7 @@ function motoGp(input) {
     }
     for (const riderName in riders) {
         console.log(riderName);
-        console.log(`  Final position: ${riders[riderName].position}
-  `);
+        console.log(`  Final position: ${riders[riderName].position}`);
     }
 }
 
