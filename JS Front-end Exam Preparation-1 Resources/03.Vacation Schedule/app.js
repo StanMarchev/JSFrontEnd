@@ -7,6 +7,7 @@ const numDaysInput = document.getElementById('num-days');
 const fromDateInput = document.getElementById('from-date');
 const formAddButton = document.getElementById('add-vacation');
 const formEditButton = document.getElementById('edit-vacation');
+const formElement = document.querySelector('#form form');
 
 loadVacationsButton.addEventListener('click', loadVacations);
 
@@ -29,7 +30,39 @@ formAddButton.addEventListener('click', (e)=> {
         .then(loadVacations)
         .then(clearForm);
        
+formEditButton.addEventListener('click', (e)=> {
+    e.preventDefault();
 
+   const vacationId = formElement.dataset.vacation;
+
+    const vacation = {
+        _id: vacationId,
+        name: nameInput.value,
+        days: numDaysInput.value,
+        date: fromDateInput.value
+    };
+
+    fetch(`${baseURL}/${vacationId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(vacation )
+    })
+
+        .then(loadVacations)
+        .then(() => {
+            formAddButton.removeAttribute('disabled');
+
+            formEditButton.setAttribute('disabled', 'disabled');
+            clearForm();
+            delete formElement.dataset.vacation
+
+    });
+
+
+    
+} )
 
 });
 
@@ -72,10 +105,31 @@ function renderVacation(vacation) {
     const changeButton = document.createElement('button');
     changeButton.className = 'change-btn';
     changeButton.textContent = 'Change';
+    changeButton.addEventListener('click', ()=> {
+        nameInput.value = vacation.name;
+        numDaysInput.value = vacation.days;
+        fromDateInput.value = vacation.date;
+        
+        container.remove();
+
+        formEditButton.removeAttribute('disabled');
+
+        formAddButton.setAttribute('disabled', 'disabled');
+
+        formElement.dataset.vacation = vacation._id
+
+
+    })
 
     const doneButton = document.createElement('button');
     doneButton.className = 'done-btn';
     doneButton.textContent = 'Done';
+    doneButton.addEventListener('click', ()=> {
+        fetch(`${baseURL}/${vacation._id}`, {
+            method: 'DELETE'
+        })
+        .then(loadVacations)
+    })
 
     container.appendChild(h2Element);
     container.appendChild(h3DateElement);
