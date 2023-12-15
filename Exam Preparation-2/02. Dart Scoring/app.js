@@ -34,7 +34,7 @@ function solve() {
     let nameVal = playerNameInput.value;
 
     let scoreParagraph = document.createElement('p');
-    scoreParagraph.textContent = `score: ${playerScore.value}`;
+    scoreParagraph.textContent = `Score: ${playerScore.value}`;
 
     let scoreVal = playerScore.value;
 
